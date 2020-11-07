@@ -73,7 +73,7 @@ public class uploadFile extends HttpServlet {
 			request.setAttribute("message", "There was an error: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-		getServletContext().getRequestDispatcher("MessageServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/MessageServlet").forward(request, response);
 
 	}
 
