@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>
+    Upload multi-files
+  </h1>
+  <form action="uploadFile" method="POST" name="uploadFile" enctype='multipart/form-data'>
+    <ul style="list-style-type: none;">
+      <li>File #1: <input type="file" name="fileOne" id="fileOne"></li>
+      <li>File #2: <input type="file" name="fileTwo" id="fileTwo"></li>
+      <li>File #3: <input type="file" name="fileThree" id="fileThree"></li>
+      <li>File #4: <input type="file" name="fileFour" id="fileFour"></li>
+      <li>File #5: <input type="file" name="fileFive" id="fileOFile"></li>
+    </ul>
+    <button type="submit" value="upload">Upload</button>
+    <button type="reset">Reset</button>
+  </form>
+</body>
+
+</html>
