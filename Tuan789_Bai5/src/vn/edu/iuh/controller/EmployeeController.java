@@ -38,6 +38,7 @@ public class EmployeeController {
 	public ModelAndView addEmployee(@ModelAttribute("emp") Employee emp) {
 		list.add(new Employee(list.size() + 1, emp.getName(), emp.getSalary(), emp.getDesignation()));
 		return new ModelAndView("redirect:/employeeView");
+		//@ModelAttribute("emp") ?
 	}
 
 	// goi danh sach employee
