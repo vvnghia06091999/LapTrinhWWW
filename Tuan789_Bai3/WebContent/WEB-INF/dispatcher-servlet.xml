@@ -31,7 +31,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	<!-- JDBCTEmplate -->
 	<bean id = "jt" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" res="database"></property>
+		<property name="dataSource" ref="database"></property>
 	</bean>
 	
 	<!-- EmployeeDao -->
