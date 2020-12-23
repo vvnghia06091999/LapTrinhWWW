@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPRING BEAN -->
+<!-- CẤU HÌNH GÌ? -->
+<!-- SPRING TOOL SUITE -->
+
+<!-- INTELLIJ -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/mvc
+  http://www.springframework.org/schema/mvc/spring-mvc.xsd
+  http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- VIEWER -->
+
+	<!-- Define Spring MVC view resolver -->
+	<!-- KẾT XUẤT TRÌNH BÀY/TEMPLATE PHẢN HỒI VỀ BROWSER -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<!-- TEMPLATE hello -->
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- TÀI NGUYÊN TĨNH -->
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/images/" mapping="/images/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+
+	<!-- HIBERNATE -->
+
+	<!-- CONTROLLER -->
+	<context:component-scan
+		base-package="vn.edu.iuh.controller"></context:component-scan>
+	
+
+	<!-- CẤU HÌNH ĐỂ ỨNG DỤNG SPRING ĐƯỢC PHÉP SỬ DỤNG ANNOTATION -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+	<context:annotation-config></context:annotation-config>
+
+	<bean id="myDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+		<property name="url"
+			value="jdbc:sqlserver://localhost:1433;Database=WebBanHangWWW" />
+		<property name="username" value="sa" />
+		<property name="password" value="sapassword" />
+	</bean>
+
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="vn.edu.iuh.model"></property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+	<!-- Cau hinh taikhoanDAO -->
+	<bean id="taiKhoanDAO" class="vn.edu.iuh.daoImpl.TaiKhoanDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="taiKhoanService"
+		class="vn.edu.iuh.serviceImpl.TaiKhoanServiceImpl">
+		<property name="taiKhoanDAO" ref="taiKhoanDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh sanPhamDAO -->
+	<bean id="sanPhamDAO" class="vn.edu.iuh.daoImpl.SanPhamDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="sanPhamService"
+		class="vn.edu.iuh.serviceImpl.SanPhamServiceImpl">
+		<property name="sanPhamDAO" ref="sanPhamDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh nhaCungCapDAO -->
+	<bean id="nhaCungCapDAO"
+		class="vn.edu.iuh.daoImpl.NhaCungCapDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="nhaCungCapService"
+		class="vn.edu.iuh.serviceImpl.NhaCungCapServiceImpl">
+		<property name="nhaCungCapDAO" ref="nhaCungCapDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh nguoiQuanLyDAO -->
+	<bean id="nguoiQuanLyDAO"
+		class="vn.edu.iuh.daoImpl.NguoiQuanLyDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="nguoiQuanLyService"
+		class="vn.edu.iuh.serviceImpl.NguoiQuanLyServiceImpl">
+		<property name="nguoiQuanLyDAO" ref="nguoiQuanLyDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh khachHangDAO -->
+	<bean id="khachHangDAO"
+		class="vn.edu.iuh.daoImpl.KhachHangDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="khachHangService"
+		class="vn.edu.iuh.serviceImpl.KhachHangServiceImpl">
+		<property name="khachHangDAO" ref="khachHangDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh donHangDAO -->
+	<bean id="donHangDAO" class="vn.edu.iuh.daoImpl.DonHangDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="donHangService"
+		class="vn.edu.iuh.serviceImpl.DonHangServiceImpl">
+		<property name="donHangDAO" ref="donHangDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh danhMucDAO -->
+	<bean id="danhMucDAO" class="vn.edu.iuh.daoImpl.DanhMucDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="danhMucService"
+		class="vn.edu.iuh.serviceImpl.DanhMucServiceImpl">
+		<property name="danhMucDAO" ref="danhMucDAO"></property>
+	</bean>
+	<!-- -->
+	<!-- Cau hinh chiTietDonHangDAO -->
+	<bean id="chiTietDonHangDAO"
+		class="vn.edu.iuh.daoImpl.ChiTietDonHangDAOImpl">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+
+	<bean id="chiTietDonHangService"
+		class="vn.edu.iuh.serviceImpl.ChiTietDonHangServiceImpl">
+		<property name="chiTietDonHangDAO" ref="chiTietDonHangDAO"></property>
+	</bean>
+	<!-- -->
+</beans>
