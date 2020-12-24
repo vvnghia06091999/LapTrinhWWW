@@ -8,7 +8,7 @@
 					<li class="nav-item  active "><a class="a-img" href="trangchu"
 						title="Trang chủ"> <span>Trang chủ</span>
 					</a></li>
-					<li class="nav-item "><a class="a-img" href="gioithieu"
+					<li class="nav-item "><a class="a-img" href=""
 						title="Giới thiệu"> <span>Giới thiệu</span>
 					</a></li>
 					<li class="nav-item "><a class="a-img" href=""
@@ -26,10 +26,10 @@
 
 						</ul>
 					</li>
-					<li class="nav-item "><a class="a-img" href="tintuc"
+					<li class="nav-item "><a class="a-img" href=""
 						title="Tin tức"> <span>Tin tức</span>
 					</a></li>
-					<li class="nav-item "><a class="a-img" href="lienhe"
+					<li class="nav-item "><a class="a-img" href=""
 						title="Liên hệ"> <span>Liên hệ</span>
 					</a></li>
 				</ul>

@@ -93,11 +93,12 @@ public class TrangChuController {
 		this.taiKhoanService = taiKhoanService;
 	}
 
+	
 	@RequestMapping(value = { "/trangchu", "/", "/tatcasanpham" }, method = RequestMethod.GET)
 	public String trangChu(Model model, Model model2, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		GioHang gioHang = null;
-		Object objGioHang = session.getAttribute("cart");
+		Object objGioHang = session.getAttribute("cart"); // Lấy cart từ jsp
 
 		if (objGioHang != null) {
 			gioHang = (GioHang) objGioHang;
@@ -110,17 +111,9 @@ public class TrangChuController {
 		return "trangchu";
 	}
 
-	@RequestMapping(value = "/giohang")
+	@RequestMapping(value = "/giohang",method = RequestMethod.GET)
 	public String showGioHang(Model model) {
 		return "ChiTietDonHang";
-	}
-
-	@RequestMapping(value = "/dangnhap", method = RequestMethod.POST)
-	public String xacNhanDangNhap(@RequestParam("user") String user, @RequestParam("password") String password) {
-		if (user.equals("admin") && password.equals("admin")) {
-			return "admin";
-		}
-		return "dangnhap";
 	}
 
 	@RequestMapping(value = "/gioithieu")
