@@ -1,5 +1,4 @@
-﻿
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -61,262 +60,23 @@
 				</div>
 			</div>
 		</div>
-		<div class="header_menu">
-			<div class="row">
-				<div class="col-xl-3 col-lg-2 col-md-12 col-sm-12 col-xs-12">
-					<div class="logo">
-						<a href="#"
-							style="display: block; line-height: 100px; height: 100px;"> <img
-							src="images/logo.png">
-						</a>
-					</div>
-				</div>
-				<div class="col-xl-7 col-lg-8 col-md-12">
-					<div class="header_service">
-						<div class="row">
-							<div class="col-lg-6">
-								<div class="wrp">
-									<div class="font-awesome">
-										<i class="fas fa-truck" style="line-height: 53px;"></i>
-									</div>
-								</div>
-								<div class="text" id="text-vanchuyen">
-									<p style="color: #66a182; font-size: 16px;">Miễn phí vận
-										chuyển</p>
-									<span style="font-size: 14px;">Với đơn hàng trị giá trên
-										<strong>1.000.000</strong>
-									</span>
-								</div>
-							</div>
-							<div class="col-lg-6">
-								<div class="wrp">
-									<div class="font-awesome">
-										<i class="fas fa-phone" style="line-height: 53px;"></i>
-									</div>
-								</div>
-								<div class="text" id="text-vanchuyen">
-									<p style="color: #66a182; font-size: 16px;">Đặt hàng nhanh</p>
-									<span style="font-size: 14px;">Gọi ngay <strong>18006750</strong>
-									</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-2 col-lg-2 hidden-md hiden-sm hidden-xs"
-					id="giohang">
-					<div
-						class="cart visible-xl visible-lg hidden-md hidden-sm hidden-xs">
-						<a href="#" id="icon-cart"> <img src="images/icon-cart.png"
-							style="padding-top: 12px;">
-						</a>
-						<div class="text-giohang">
-							<a href="giohang" style="font-size: 16px; color: #66a182;">Giỏ
-								hàng</a>
-							<p style="margin: 0 0 15px 0;">
-								(<span style="color: red;">${cart.soLuongItiem() }</span>) Sản
-								phẩm
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+		<!-- _header.jsp  -->
+		<div>
+			<jsp:include page="_header.jsp"></jsp:include>
 		</div>
 	</div>
 	<div class="header_nav_main section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12 col-sm-12">
-					<div class="heade_menunav">
-						<div class="wrap_main d-none d-lg-block d-xl-block">
-							<div class="bg-header-nav">
-								<div class="row">
-									<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-										<nav class="header-nav">
-											<ul class="item_big">
-												<li class="nav-item  active "><a class="a-img"
-													href="trangchu" title="Trang chủ"> <span>Trang
-															chủ</span>
-												</a></li>
-												<li class="nav-item "><a class="a-img" href="gioithieu"
-													title="Giới thiệu"> <span>Giới thiệu</span>
-												</a></li>
-												<li class="nav-item "><a class="a-img" href=""
-													title="Sản phẩm"> <span>Sản phẩm</span><i
-														class="fa fa-angle-down"></i>
-												</a>
-													<ul class="item_small">
-														<li><a href="aothun" title="Áo Thun">Áo Thun</a></li>
-														<li><a href="aophong" title="Áo phông">Áo phông</a></li>
-														<li><a href="aosomi" title="Áo sơ mi">Áo sơ mi</a></li>
-														<li><a href="aococtay" title="Áo cộc tay">Áo cộc
-																tay</a></li>
-														<li><a href="quanjean" title="Áo cộc tay">Quần
-																Jean Nam</a></li>
-														<li><a href="tatcasanpham" title="Áo cộc tay">Tất
-																cả sản phẩm</a></li>
-														<li>
-													</ul></li>
-												<li class="nav-item "><a class="a-img" href="tintuc"
-													title="Tin tức"> <span>Tin tức</span>
-												</a></li>
-												<li class="nav-item "><a class="a-img" href="lienhe"
-													title="Liên hệ"> <span>Liên hệ</span>
-												</a></li>
-											</ul>
-										</nav>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-										<div class="serachpc">
-											<div class="searchform">
-												<form action="timkiem" method="get"
-													class="input-group search-bar" role="search">
-													<input type="text" name="timkiem" value=""
-														autocomplete="off" placeholder="Tìm kiếm..."
-														class="input-group-field auto-search visible_index">
-													<button type="submit"
-														class="visible_index btn icon-fallback-text">
-														<i class="fa fa-search"></i>
-													</button>
-												</form>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="section_sidebar_slider">
-							<div class="container">
-								<div class="row">
-									<div
-										class="dqdt-sidebar sidebar left-content col-lg-3 col-md-12 hidden-sm hidden-xs">
-										<div class="wrap_background_aside asidecollection">
-
-											<aside
-												class="aside-item sidebar-category collection-category margin-bottom-20">
-												<div class="aside-title">
-													<h2 class="title-head margin-top-0 cate">
-														<i class="fas fa-bars"></i><span>Danh mục sản phẩm</span>
-													</h2>
-												</div>
-												<div class="aside-content">
-													<nav class="nav-category navbar-toggleable-md">
-														<ul class="nav navbar-pills">
-
-
-
-
-
-															<li class="nav-item "><a href="aothun"
-																class="nav-link a1">Áo Thun</a></li>
-
-
-
-
-															<li class="nav-item "><a href="aophong"
-																class="nav-link a1">Áo phông</a></li>
-
-
-
-
-															<li class="nav-item "><a href="aosomi"
-																class="nav-link a1">Áo sơ mi</a></li>
-
-
-
-
-															<li class="nav-item "><a href="aococtay"
-																class="nav-link a1">Áo cộc tay</a></li>
-
-
-
-
-															<li class="nav-item "><a href="quanjean"
-																class="nav-link a1">Quần Jean Nam</a></li>
-
-
-
-
-															<li class="nav-item "><a class="nav-link"
-																href="tatcasanpham">Tất cả sản phẩm</a></li>
-
-
-
-															<li class="nav-item "><a class="nav-link"></a></li>
-															<li class="nav-item "><a class="nav-link"></a></li>
-															<li class="nav-item "><a class="nav-link"></a></li>
-
-
-														</ul>
-													</nav>
-												</div>
-											</aside>
-
-										</div>
-									</div>
-
-
-
-
-
-
-
-
-
-
-									<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-										<div class="sectionslider">
-											<div class="section home-slider">
-
-												<div id="demo" class="carousel slide" data-ride="carousel">
-
-													<!-- Indicators -->
-													<ul class="carousel-indicators">
-														<li data-target="#demo" data-slide-to="0" class="active"></li>
-														<li data-target="#demo" data-slide-to="1"></li>
-														<li data-target="#demo" data-slide-to="2"></li>
-													</ul>
-
-													<!-- The slideshow -->
-													<div class="carousel-inner">
-														<div class="carousel-item active">
-															<img src="images/slider_1.jpg" alt="Los Angeles"
-																width="1100" height="600">
-														</div>
-														<div class="carousel-item">
-															<img src="images/slider_2.jpg" alt="Chicago"
-																width="1100" height="600">
-														</div>
-														<div class="images/slider_1.jpg">
-															<img src="images//slider_1.jpg" alt="New York"
-																width="1100" height="600">
-														</div>
-													</div>
-
-													<!-- Left and right controls -->
-													<a class="carousel-control-prev" href="#demo"
-														data-slide="prev"> <span
-														class="carousel-control-prev-icon"></span>
-													</a> <a class="carousel-control-next" href="#demo"
-														data-slide="next"> <span
-														class="carousel-control-next-icon"></span>
-													</a>
-												</div>
-
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+					<!-- Menu -->
+					<div>
+						<jsp:include page="_menu.jsp"></jsp:include>
 					</div>
 				</div>
 			</div>
 			<div class="col-xl-12 col-lg-12">
 				<div class="row">
-
-					<!--  -->
 					<c:forEach items="${listDanhMuc }" var="dm">
 						<div class="title-modules">
 							<h2 class="title_h2">
@@ -339,7 +99,6 @@
 												type="hidden" name="donGia" value="${sp.donGia}"> <input
 												type="hidden" name="soLuong" value="1"> <input
 												type="hidden" name="action" value="add">
-
 										</p>
 										<p>
 											<a
@@ -353,105 +112,15 @@
 							</c:if>
 						</c:forEach>
 					</c:forEach>
-
-
-
-
-
-
-					<!--  -->
-
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-
-
-
-	<div class="section footer_wwap">
-		<link rel="stylesheet"
-			href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-			media="all">
-		<footer class="footer">
-			<div class="site-footer">
-				<div class="mid-footer section">
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="logo_footer">
-									<a href="#" class="logo-wrapper"> <img
-										src="//bizweb.dktcdn.net/100/091/100/themes/756257/assets/logo_footer.png?1587091907685"
-										alt="logo ">
-									</a>
-								</div>
-								<div class="widget-ft first">
-									<div class="time_work">
-										<div class="itemfooter cont">
-											<div class="r">
-												<i class="fas fa-map-marker-alt"></i> <span> Số 12
-													Nguyễn Văn Bảo, Phường 4, Quận Gò Vấp, Thành phố Hồ Chí
-													Minh </span>
-											</div>
-											<div class="r">
-												<i class="fas fa-phone"></i> <a class="fone"
-													href="tel: 0283.8940 390"> 0283.8940 390</a>
-											</div>
-											<div class="r">
-												<i class="far fa-envelope"></i> <a
-													href="mailto:support@sapo.vn"> dhcn@iuh.edu.vn</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="bg-footer-bottom copyright clearfix">
-					<div class="inner clearfix container">
-						<div class="row tablet">
-							<div id="copyright"
-								class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 a-left fot_copyright">
-								<span class="wsp"><span class="mobile">© Bản quyền
-										2015 - Trường Đại học Công nghiệp TP. Hồ Chí Minh Mọi hành
-										động sử dụng nội dung đăng tải trên Website iuh.edu.vn phải có
-										sự đồng ý bằng văn bản của Trường Đại học Công nghiệp Tp. HCM.
-
-								</span>
-							</div>
-							<div class="col-xl-6 col-lg-6 col-sm-6 col-xs-12">
-								<ul class="nav nav-inline pull-lg-right">
-
-									<li class="nav-item"><a class="nav-link" href="trangchu">Trang
-											chủ</a></li>
-
-									<li class="nav-item"><a class="nav-link" href="gioithieu">Giới
-											thiệu</a></li>
-
-									<li class="nav-item"><a class="nav-link"
-										href="tatcasanpham">Sản phẩm</a></li>
-
-									<li class="nav-item"><a class="nav-link" href="tintuc">Tin
-											tức</a></li>
-
-									<li class="nav-item"><a class="nav-link" href="lienhe">Liên
-											hệ</a></li>
-
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<a href="#" class="backtop show" title="Lên đầu trang"><i
-						class="fa fa-angle-up" aria-hidden="true"></i></a>
-
-				</div>
-			</div>
-			<link rel="stylesheet"
-				href="//bizweb.dktcdn.net/100/091/100/themes/756257/assets/responsive.scss.css?1587091907685"
-				type="text/css">
-		</footer>
+	
+	<!-- _footer.jsp -->
+	<div>
+		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
 
 </body>
