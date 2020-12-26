@@ -27,11 +27,11 @@ public class KhachHang implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer maKhachHang;
 	@Column(columnDefinition="nvarchar(255)")
-	@Pattern(regexp="^[a-zA-Z0-9].*",message="Tên không được bỏ trống")
+	@Pattern(regexp="^[\\p{L} ]+$",message="Tên không hợp lệ hoặc đang để trống")
 	private String tenKhachHang;
 	private LocalDate ngaySinh;
 	@Column(columnDefinition="nvarchar(255)")
-	@Pattern(regexp="^[0-9]{8,}",message="Số chứng minh phải từ 8 số")
+	@Pattern(regexp="[0-9]{9}|[0-9]{12}",message="Số chứng minh phải là 9 số hoặc Số căn cước công dân phải là 12 số")
 	private String soCMND;
 	@Column(columnDefinition="nvarchar(255)")
 	@Pattern(regexp="^[0-9]{10}",message="Số điện thoại phải là 10 số")
@@ -40,7 +40,7 @@ public class KhachHang implements Serializable{
 	@Pattern(regexp="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-zA-Z]{2,4}",message="Email có dạng nguyen@gmail.com")
 	private String email;
 	@Column(columnDefinition="nvarchar(255)")
-	@Pattern(regexp="^[a-zA-Z0-9].*",message="Địa chỉ không được bỏ trống")
+	@Pattern(regexp="^[a-zA-Z0-9].*",message="Địa chỉ không hợp lệ hoặc đang bỏ trống")
 	private String diaChi;
 	@Column(columnDefinition="nvarchar(255)")
 	private String trangThai;

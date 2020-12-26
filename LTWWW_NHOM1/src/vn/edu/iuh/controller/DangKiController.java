@@ -121,9 +121,7 @@ public class DangKiController {
 			KhachHang khachHangLogin = khachHangService.getKhachHangByTaiKhoan(tenTaiKhoan);
 			// cập nhật lại khách hàng
 			khachHang.setMaKhachHang(khachHangLogin.getMaKhachHang());
-			khachHang.setNgaySinh(khachHangLogin.getNgaySinh());
 			khachHang.setTrangThai(khachHangLogin.getTrangThai());
-			khachHang.setSoCMND(khachHangLogin.getSoCMND());
 			khachHang.setTaiKhoan(khachHangLogin.getTaiKhoan());
 			khachHangService.updateKhachHang(khachHang);
 			return "redirect:/trangchu";

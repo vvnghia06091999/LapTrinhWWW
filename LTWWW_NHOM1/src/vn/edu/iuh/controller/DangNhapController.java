@@ -70,6 +70,11 @@ public class DangNhapController {
 			} else if (check == false && (taiKhoan.getTenTaiKhoan().equalsIgnoreCase("admin")
 					&& taiKhoan.getMatKhau().equalsIgnoreCase("admin"))) {
 				return "admin";
+			}else if(check == false && taiKhoan.getTenTaiKhoan().equalsIgnoreCase("admin")
+					&& !taiKhoan.getMatKhau().equalsIgnoreCase("admin")){
+				HttpSession session = request.getSession();
+				session.setAttribute("thongBaoDangNhapLoi", "true");
+				return "dangnhap";
 			}
 			return "redirect:/trangchu";
 

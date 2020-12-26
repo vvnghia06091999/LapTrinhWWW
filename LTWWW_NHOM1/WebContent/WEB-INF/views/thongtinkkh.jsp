@@ -149,8 +149,7 @@ span.price {
 				<div class="col-md-8" id="navbar-header-right">
 					<ul>
 						<c:if test="${tentk!=null}">
-							<li><a href="thongtincanhan"><span>Xem thông tin
-										cá nhân</span></a></li>
+							<li><a href=""><span>Xem thông tin cá nhân</span></a></li>
 							<li><a
 								href="<c:url value="/dsDonHangKhachHang?tenTaiKhoan=${tk.tenTaiKhoan }"/>"><span>Đơn
 										hàng</span></a></li>
@@ -187,29 +186,35 @@ span.price {
 												<label for="fname"><i class="fa fa-user"></i> Họ và
 													tên:</label>
 												<form:input path="tenKhachHang" class="input_thanhtoan"
-													type="text" placeholder="Nguyễn Văn Hoàng"
-													title="Tên Không Được Nhập Số Hoặc Kí Tự Đặt Biệt" />
+													type="text" />
 												<form:errors path="tenKhachHang" cssClass="error"
 													style="color:red;"></form:errors>
 												<label for="email"><i class="fa fa-envelope"></i>
 													Email</label>
-												<form:input path="email" class="input_thanhtoan" type="text"
-													placeholder="nguyenvanhoang34iuh@gmai.com" />
+												<form:input path="email" class="input_thanhtoan" type="text" />
 												<form:errors path="email" cssClass="error"
+													style="color:red;"></form:errors>
+												<label for="fname"> Số CMND:</label>
+												<form:input path="soCMND" class="input_thanhtoan"
+													type="text" placeholder="CMND/CCCD" />
+												<form:errors path="soCMND" cssClass="error"
+													style="color:red;"></form:errors>
+												<label for="fname">Ngày Sinh:</label>
+												<form:input path="ngaySinh" class="input_thanhtoan"
+													type="text" placeholder="dd/mm/yyyy" />
+												<form:errors path="ngaySinh" cssClass="error"
 													style="color:red;"></form:errors>
 												<label for="adr"><i class="fa fa-address-card-o"></i>
 													Địa chỉ nhận hàng:</label>
 												<form:input path="diaChi" class="input_thanhtoan"
-													type="text" title="Địa Chỉ Không Được Nhập Kí Tự Đặt Biệt"
-													placeholder="14 Lê Văn Bảo, Gò Vấp" />
+													type="text" title="Địa Chỉ Không Được Nhập Kí Tự Đặt Biệt" />
 												<form:errors path="diaChi" cssClass="error"
 													style="color:red;"></form:errors>
 												<div class="row">
 													<div class="col-50">
 														<label for="soDienThoai">Số điện thoai: </label>
 														<form:input path="soDienThoai" class="input_thanhtoan"
-															type="text" title="Số điện thoại có 10 số"
-															placeholder="0898136956" />
+															type="text" title="Số điện thoại có 10 số" />
 														<form:errors path="soDienThoai" cssClass="error"
 															style="color:red;"></form:errors>
 													</div>
