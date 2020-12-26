@@ -39,6 +39,7 @@ public class DangNhapController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("tk");
 		session.removeAttribute("cart");
+		session.removeAttribute("thongBaoDangNhapLoi");
 		return "redirect:/trangchu";
 	}
 

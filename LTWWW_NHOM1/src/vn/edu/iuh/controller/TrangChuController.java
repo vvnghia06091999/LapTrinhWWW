@@ -93,7 +93,6 @@ public class TrangChuController {
 		this.taiKhoanService = taiKhoanService;
 	}
 
-	
 	@RequestMapping(value = { "/trangchu", "/", "/tatcasanpham" }, method = RequestMethod.GET)
 	public String trangChu(Model model, Model model2, HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
@@ -111,27 +110,9 @@ public class TrangChuController {
 		return "trangchu";
 	}
 
-	@RequestMapping(value = "/giohang",method = RequestMethod.GET)
+	@RequestMapping(value = "/giohang", method = RequestMethod.GET)
 	public String showGioHang(Model model) {
 		return "ChiTietDonHang";
-	}
-
-	@RequestMapping(value = "/gioithieu")
-	public String showFormGioithieu(Model model) {
-
-		return "gioithieu";
-	}
-
-	@RequestMapping(value = "/tintuc")
-	public String showTintuc(Model model) {
-
-		return "tintuc";
-	}
-
-	@RequestMapping(value = "/lienhe")
-	public String showLienhe(Model model) {
-
-		return "lienhe";
 	}
 
 	@RequestMapping(value = "/timkiem")
@@ -141,7 +122,6 @@ public class TrangChuController {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String tenSanPham = request.getParameter("timkiem");
-		// List<SanPham> list = sanPhamEJB_CRUDRemote.getSanPhamByten(tenSanPham);
 		List<SanPham> list = sanPhamService.getSanPhamByten(tenSanPham);
 		request.setAttribute("listSanPham", list);
 		request.setAttribute("tukhoa", tenSanPham);

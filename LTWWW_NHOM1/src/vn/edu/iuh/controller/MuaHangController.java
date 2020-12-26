@@ -131,8 +131,7 @@ public class MuaHangController {
 		if (tenTaiKhoan.equalsIgnoreCase("")) {
 			return "redirect:/dangnhap";
 		} else {
-			KhachHang khachHang = new KhachHang();
-			// KhachHang khachHang = khachHangService.getKhachHangByTaiKhoan(tenTaiKhoan);
+			KhachHang khachHang = khachHangService.getKhachHangByTaiKhoan(tenTaiKhoan);
 			model.addAttribute("kH", khachHang);
 			return "thanhtoan";
 		}
@@ -173,7 +172,6 @@ public class MuaHangController {
 		float donGia = Float.valueOf(request.getParameter("donGia"));
 		int soLuong = Integer.valueOf(request.getParameter("soLuong"));
 
-		// String tenSanPhamDecoded = URLDecoder.decode(tenSanPham, "UTF-8");
 		HttpSession session = request.getSession();
 		GioHang gioHang = null;
 		Object objGioHang = session.getAttribute("cart");
@@ -228,7 +226,6 @@ public class MuaHangController {
 	}
 
 	@RequestMapping(value = "/xacnhanthanhtoan")
-//	public String xacNhanThanhToan(@RequestParam("tenTaiKhoan") String tenTaiKhoan,@RequestParam("name") String tenKhachHang,@RequestParam("email") String email,@RequestParam("diaChi") String diaChi,@RequestParam("dienThoai") String soDienThoai,HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
 	public String xacNhanThanhToan(@Valid @ModelAttribute("kH") KhachHang khachHang, BindingResult theBindingResult,
 			@RequestParam("tenTaiKhoan") String tenTaiKhoan, HttpServletRequest request)
 			throws IOException, ServletException {
@@ -269,5 +266,26 @@ public class MuaHangController {
 			}
 			return "redirect:/trangchu";
 		}
+	}
+
+	@RequestMapping(value = { "/dsDonHangKhachHang" })
+	public String dsDonHangKhachHang(HttpServletRequest request) throws IOException, ServletException {
+		HttpSession session = request.getSession();
+		KhachHang khachHang = khachHangService.getKhachHangByTaiKhoan(request.getParameter("tenTaiKhoan"));
+		if (donHangService.getAllDonHangbyMaKhachHang(khachHang.getMaKhachHang()).isEmpty()) {
+			return "XemDSDonHang_KhachHang";
+		}
+		session.setAttribute("listDonHangKhachHang",
+				donHangService.getAllDonHangbyMaKhachHang(khachHang.getMaKhachHang()));
+		return "XemDSDonHang_KhachHang";
+	}
+
+	@RequestMapping(value = "/xemChiTietDonHangKhachHang", method = RequestMethod.GET)
+	public String xemChiTietDonHangKhachHang(HttpServletRequest request) throws IOException, ServletException {
+		HttpSession session = request.getSession();
+		String maDonHang = request.getParameter("maDonHangKH");
+		session.setAttribute("listChiTietKhachHang",
+				chiTietDonHangService.getAllChiTietDonHangbyDonHang(Integer.parseInt(maDonHang)));
+		return "XemDSChiTiet_KhachHang";
 	}
 }

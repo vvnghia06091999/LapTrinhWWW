@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 
@@ -175,95 +174,66 @@ span.price {
 								<jsp:include page="menu2.jsp"></jsp:include>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<h2>Vemouse</h2>
-			<p>Vui lòng nhập đúng thông tin trước khi thanh toán</p>
-			<div class="row">
-				<div class="col-75">
-					<div class="container_thanhtoan">
-						<form:form action="xacnhanthanhtoan" method="POST"
-							modelAttribute="kH">
-							<div class="row">
-								<div class="col-50">
-									<h3>Thông tin cá nhân</h3>
-									<label for="fname"><i class="fa fa-user"></i> Họ và
-										tên:</label>
-									<form:input path="tenKhachHang" class="input_thanhtoan"
-										type="text" placeholder="${kH.tenKhachHang}"
-										title="Tên Không Được Nhập Số Hoặc Kí Tự Đặt Biệt" />
-									<form:errors path="tenKhachHang" cssClass="error"
-										style="color:red;"></form:errors>
-									<label for="email"><i class="fa fa-envelope"></i> Email</label>
-									<form:input path="email" class="input_thanhtoan" type="text"
-										placeholder="${kH.email}" />
-									<form:errors path="email" cssClass="error" style="color:red;"></form:errors>
-									<label for="adr"><i class="fa fa-address-card-o"></i>
-										Địa chỉ nhận hàng:</label>
-									<form:input path="diaChi" class="input_thanhtoan" type="text"
-										title="Địa Chỉ Không Được Nhập Kí Tự Đặt Biệt"
-										placeholder="${kH.diaChi}" />
-									<form:errors path="diaChi" cssClass="error" style="color:red;"></form:errors>
-									<div class="row">
-										<div class="col-50">
-											<label for="soDienThoai">Số điện thoai: </label>
-											<form:input path="soDienThoai" class="input_thanhtoan"
-												type="text" title="Số điện thoại có 10 số"
-												placeholder="${kH.soDienThoai}" />
-											<form:errors path="soDienThoai" cssClass="error"
-												style="color:red;"></form:errors>
+						<h2>Thông tin của bạn</h2>
+
+						<div class="row">
+							<div class="col-75">
+								<div class="container_thanhtoan">
+									<form:form action="thongtinkhh" method="POST"
+										modelAttribute="kH">
+										<div class="row">
+											<div class="col-50">
+												<h3>Thông tin cá nhân</h3>
+												<label for="fname"><i class="fa fa-user"></i> Họ và
+													tên:</label>
+												<form:input path="tenKhachHang" class="input_thanhtoan"
+													type="text" placeholder="Nguyễn Văn Hoàng"
+													title="Tên Không Được Nhập Số Hoặc Kí Tự Đặt Biệt" />
+												<form:errors path="tenKhachHang" cssClass="error"
+													style="color:red;"></form:errors>
+												<label for="email"><i class="fa fa-envelope"></i>
+													Email</label>
+												<form:input path="email" class="input_thanhtoan" type="text"
+													placeholder="nguyenvanhoang34iuh@gmai.com" />
+												<form:errors path="email" cssClass="error"
+													style="color:red;"></form:errors>
+												<label for="adr"><i class="fa fa-address-card-o"></i>
+													Địa chỉ nhận hàng:</label>
+												<form:input path="diaChi" class="input_thanhtoan"
+													type="text" title="Địa Chỉ Không Được Nhập Kí Tự Đặt Biệt"
+													placeholder="14 Lê Văn Bảo, Gò Vấp" />
+												<form:errors path="diaChi" cssClass="error"
+													style="color:red;"></form:errors>
+												<div class="row">
+													<div class="col-50">
+														<label for="soDienThoai">Số điện thoai: </label>
+														<form:input path="soDienThoai" class="input_thanhtoan"
+															type="text" title="Số điện thoại có 10 số"
+															placeholder="0898136956" />
+														<form:errors path="soDienThoai" cssClass="error"
+															style="color:red;"></form:errors>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
+										<input type="hidden" name="tenTaiKhoan"
+											value="${tk.tenTaiKhoan }">
+										<button type="submit" value="Xác Nhận Thanh Toán" class="btn">Lưu
+											thông tin</button>
+									</form:form>
+									<script>
+										function thongbao() {
+											confirm("Lưu thông tin thành công");
+										}
+									</script>
 								</div>
-
-								<div class="col-50">
-									<h3>Hình thức thanh toán</h3>
-									<label for="fname">Thanh toán tại nhà</label>
-								</div>
-
 							</div>
-							<input type="hidden" name="tenTaiKhoan"
-								value="${tk.tenTaiKhoan }">
-
-							<input type="hidden" name="action" value="xacnhanthanhtoan">
-							<button type="submit" value="Xác Nhận Thanh Toán" class="btn">Xác
-								Nhận Thanh Toán</button>
-						</form:form>
-						<script>
-							function thongbao() {
-								confirm("Đơn hàng đã được đặt thành công!!!");
-							}
-						</script>
-					</div>
-				</div>
-				<div class="col-25">
-					<div class="container_thanhtoan">
-						<h4>
-							Danh sách sản phẩm <span class="price" style="color: black"><i
-								class="fa fa-shopping-cart"></i> <b>${cart.soLuongItiem() }</b></span>
-						</h4>
-
-
-						<c:forEach items="${cart.getGioHang()}" var="sp">
-							<p>
-								<a href="#">${sp.tenSanpham }</a> <span class="price">SL:
-									${sp.soLuong } ${sp.soLuong*sp.donGia}</span>
-							</p>
-							<br />
-						</c:forEach>
-
-
-						<hr>
-						<p>
-							Tổng tiền: <span class="price" style="color: black"><b>
-									<fmt:setLocale value="vi_VN" /> <fmt:formatNumber
-										value="${cart.TongTien() }" type="currency" />
-							</b></span>
-						</p>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 </body>
 
 </html>

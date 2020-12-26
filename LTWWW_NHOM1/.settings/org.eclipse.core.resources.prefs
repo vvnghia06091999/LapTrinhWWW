@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/_header.jsp=UTF-8
+encoding//src/vn/edu/iuh/controller/DangKiController.java=UTF-8
 encoding//src/vn/edu/iuh/controller/MuaHangController.java=UTF-8
 encoding//src/vn/edu/iuh/model/KhachHang.java=UTF-8
 encoding//src/vn/edu/iuh/model/SanPham.java=UTF-8
