@@ -111,17 +111,17 @@ public class MuaHangController {
 		if (action != null && !action.equals("")) {
 			if (action.equals("add")) {
 				addItem(request, response);
-				return "ChiTietDonHang";
+				return "ChiTietDonHangView";
 			} else if (action.equals("update")) {
 				updateSoLuong(request, response);
-				return "ChiTietDonHang";
+				return "ChiTietDonHangView";
 			} else if (action.equals("delete")) {
 				deleteItem(request, response);
-				return "ChiTietDonHang";
+				return "ChiTietDonHangView";
 			}
 
 		}
-		return "ChiTietDonHang";
+		return "ChiTietDonHangView";
 
 	}
 
@@ -133,7 +133,7 @@ public class MuaHangController {
 		} else {
 			KhachHang khachHang = khachHangService.getKhachHangByTaiKhoan(tenTaiKhoan);
 			model.addAttribute("kH", khachHang);
-			return "thanhtoan";
+			return "ThanhToanView";
 		}
 	}
 
@@ -145,7 +145,7 @@ public class MuaHangController {
 		sanPhamModel.addAttribute("sp", sanPham);
 		soLuongDaBan.addAttribute("soLuongCon", soLuongConTrongKho(maSanPhamIn));
 		soLuongCon.addAttribute("soLuongDaBan", soLuongSanPhamDaDat(maSanPhamIn));
-		return "xemthongtinsanpham";
+		return "ThongTinSanPhamView";
 	}
 
 	public int soLuongSanPhamDaDat(int maSanPham) {
@@ -277,7 +277,7 @@ public class MuaHangController {
 		}
 		session.setAttribute("listDonHangKhachHang",
 				donHangService.getAllDonHangbyMaKhachHang(khachHang.getMaKhachHang()));
-		return "XemDSDonHang_KhachHang";
+		return "XemDSDonHang_KhachHangView";
 	}
 
 	@RequestMapping(value = "/xemChiTietDonHangKhachHang", method = RequestMethod.GET)
@@ -286,6 +286,6 @@ public class MuaHangController {
 		String maDonHang = request.getParameter("maDonHangKH");
 		session.setAttribute("listChiTietKhachHang",
 				chiTietDonHangService.getAllChiTietDonHangbyDonHang(Integer.parseInt(maDonHang)));
-		return "XemDSChiTiet_KhachHang";
+		return "XemDSChiTiet_KhachHangView";
 	}
 }

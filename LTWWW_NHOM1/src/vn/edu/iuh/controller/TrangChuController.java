@@ -107,12 +107,12 @@ public class TrangChuController {
 		}
 		model.addAttribute("listSanPham", sanPhamService.getAllSanPham());
 		model2.addAttribute("listDanhMuc", danhMucService.getAllDanhMuc());
-		return "trangchu";
+		return "TrangChuView";
 	}
 
 	@RequestMapping(value = "/giohang", method = RequestMethod.GET)
 	public String showGioHang(Model model) {
-		return "ChiTietDonHang";
+		return "ChiTietDonHangView";
 	}
 
 	@RequestMapping(value = "/timkiem")
@@ -125,7 +125,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByten(tenSanPham);
 		request.setAttribute("listSanPham", list);
 		request.setAttribute("tukhoa", tenSanPham);
-		return "ListKetQuaTimKiem";
+		return "ListKetQuaTimKiemView";
 	}
 
 	@RequestMapping(value = "/aothun")
@@ -133,7 +133,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByDanhMucByTen("Áo Thun");
 		model.addAttribute("listSanPham", list);
 		model2.addAttribute("danhmuc", "Áo Thun");
-		return "ListMenuSanPham";
+		return "ListMenuSanPhamView";
 	}
 
 	@RequestMapping(value = "/aophong")
@@ -141,7 +141,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByDanhMucByTen("Áo Phông Nam");
 		model.addAttribute("listSanPham", list);
 		model2.addAttribute("danhmuc", "Áo Phông Nam");
-		return "ListMenuSanPham";
+		return "ListMenuSanPhamView";
 	}
 
 	@RequestMapping(value = "/aosomi")
@@ -149,7 +149,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByDanhMucByTen("Áo Sơ Mi");
 		model.addAttribute("listSanPham", list);
 		model2.addAttribute("danhmuc", "Áo Sơ Mi");
-		return "ListMenuSanPham";
+		return "ListMenuSanPhamView";
 	}
 
 	@RequestMapping(value = "/aococtay")
@@ -157,7 +157,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByDanhMucByTen("Áo Cộc Tay");
 		model.addAttribute("listSanPham", list);
 		model2.addAttribute("danhmuc", "Áo Cộc Tay");
-		return "ListMenuSanPham";
+		return "ListMenuSanPhamView";
 	}
 
 	@RequestMapping(value = "/quanjean")
@@ -165,6 +165,7 @@ public class TrangChuController {
 		List<SanPham> list = sanPhamService.getSanPhamByDanhMucByTen("Quần Jean Nam");
 		model.addAttribute("listSanPham", list);
 		model2.addAttribute("danhmuc", "Quần Jean Nam");
-		return "ListMenuSanPham";
+		return "ListMenuSanPhamView";
 	}
+	
 }
